@@ -37,7 +37,8 @@
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",
-		"lint": "eslint src --ext ts",
+		"lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+		"lintfix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
