@@ -2,7 +2,16 @@
 	"name": "sync-extensions",
 	"displayName": "sync-extensions",
 	"description": "export installed extensions data for sync",
-	"version": "0.0.1",
+	"version": "0.1.0",
+	"publisher": "hoddy3190",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hoddy3190/sync-extensions"
+	},
+	"bugs": {
+		"url": "https://github.com/hoddy3190/sync-extensions/issues"
+	},
+	"license": "MIT",
 	"engines": {
 		"vscode": "^1.52.0"
 	},
