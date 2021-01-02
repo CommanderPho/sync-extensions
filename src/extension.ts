@@ -1,28 +1,60 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
+import * as fs from "fs";
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext): number {
-  // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
+interface ExtData {
+  version: string;
+}
+
+interface ExtDict {
+  [id: string]: ExtData;
+}
+
+const write = (path: string, data: string) => {
+  fs.writeFileSync(path, data, "utf8");
+};
+
+const getInstalledExtDict = (): ExtDict => {
+  const extDict: ExtDict = {};
+  vscode.extensions.all.forEach(
+    (ext) =>
+      (extDict[ext.id] = {
+        // If there are multiple versions per ext.id, current using version is assigned
+        version: ext.packageJSON.version,
+      })
+  );
+  return extDict;
+};
+
+const exportExtensionsData = () => {
+  const config = vscode.workspace.getConfiguration("sync-extensions");
+  const extDict = getInstalledExtDict();
+  try {
+    write(config.path, JSON.stringify(extDict, null, 2));
+  } catch (err) {
+    vscode.window.showErrorMessage(
+      `write extensions data error
+      [message]: ${err.message}
+      [exported file path]: ${config.path}`
+    );
+    return;
+  }
   console.log(
-    'Congratulations, your extension "sync-extensions" is now active!'
+    `Your installed extensions data has been exported to ${config.path}`
   );
+};
 
-  // The command has been defined in the package.json file
-  // Now provide the implementation of the command with registerCommand
-  // The commandId parameter must match the command field in package.json
-  const disposable = vscode.commands.registerCommand(
-    "sync-extensions.helloWorld",
-    () => {
-      // The code you place here will be executed every time your command is executed
+export function activate(context: vscode.ExtensionContext): void {
+  // onDidChange doesn't catch uninstalling and disabling which need reloading.
+  // e.g. 'dbaeumer.vscode-eslint' needs reloading to uninstall, but 'vivaxy.vscode-conventional-commits' doesn't.
+  // So extensions data are exported in starting up too for catching after reloading.
+  exportExtensionsData();
 
-      // Display a message box to the user
-      vscode.window.showInformationMessage("Hello World from sync-extensions!");
-    }
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "sync-extensions.exportExtensionsData",
+      exportExtensionsData
+    ),
+    // cf. https://code.visualstudio.com/api/references/vscode-api#extensions
+    vscode.extensions.onDidChange(exportExtensionsData)
   );
-
-  return context.subscriptions.push(disposable);
 }

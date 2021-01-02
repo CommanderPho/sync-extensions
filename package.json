@@ -10,14 +10,25 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:sync-extensions.helloWorld"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"configuration": {
+			"title": "sync-extensions",
+			"properties": {
+				"sync-extensions.path": {
+					"title": "file path in which extensions data is exported",
+					"type": "string",
+					"default": "",
+					"description": "You can decide the file name and its path. The data is json."
+				}
+			}
+		},
 		"commands": [
 			{
-				"command": "sync-extensions.helloWorld",
-				"title": "Hello World"
+				"command": "sync-extensions.exportExtensionsData",
+				"title": "sync-extensions: export extensions data"
 			}
 		]
 	},
