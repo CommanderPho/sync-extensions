@@ -9,7 +9,8 @@ Also you can export manually with `sync-extensions: export extensions data` comm
 This extension has the following settings:
 
 + `sync-extensions.path`
-  - file path in which extensions data is exported
+  - file name and its absolute path in which extensions data is exported
+  - setting example: `/path/to/myextensions.json`
 
 ## Exported Data Format
 
