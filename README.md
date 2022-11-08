@@ -28,3 +28,13 @@ If you install multiple versions per extension id, current using version is writ
   ...
 }
 ```
+
+## Why not use "Settings Sync"
+
+VS Code has function for syncing settings, called "[Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)".
+In fact, this can sync extensions.
+
+The reason why I don't use "Settings Sync" is the followings:
+
+- Settings Sync uses cloud service such as GitHub, Microsoft to sync, but I want to sync locally for security.
+- Settings Sync exports settings manually, but I want to export automatically.
