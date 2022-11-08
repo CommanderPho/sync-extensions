@@ -30,6 +30,14 @@ If you install multiple versions per extension id, current using version is writ
 }
 ```
 
+## How to import extensions from exported settings
+
+1. install "code" command referring "[Launching from the command line](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)"
+2. Execute this shell scripts (you can execute from anywhere) after replacing "/path/to/myextensions.json" string in the script with your value of `sync-extensions.path`
+   ```sh
+   SYNC_EXTENSIONS_PATH="/path/to/myextensions.json" /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hoddy3190/sync-extensions/main/install_extensions.sh)"
+   ```
+
 ## Why not use "Settings Sync"
 
 VS Code has function for syncing settings, called "[Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync)".
