@@ -2,7 +2,7 @@
 	"name": "sync-extensions",
 	"displayName": "sync-extensions",
 	"description": "export installed extensions data for sync",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"publisher": "hoddy3190",
 	"repository": {
 		"type": "git",
