@@ -2,14 +2,14 @@
 	"name": "sync-extensions",
 	"displayName": "sync-extensions",
 	"description": "export installed extensions data for sync",
-	"version": "1.0.0",
-	"publisher": "hoddy3190",
+	"version": "2.0.0",
+	"publisher": "phohale+hoddy3190",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/hoddy3190/sync-extensions"
+		"url": "https://github.com/CommanderPho/sync-extensions"
 	},
 	"bugs": {
-		"url": "https://github.com/hoddy3190/sync-extensions/issues"
+		"url": "https://github.com/CommanderPho/sync-extensions/issues"
 	},
 	"license": "MIT",
 	"engines": {
