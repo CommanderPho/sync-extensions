@@ -4,6 +4,9 @@ This extension automatically exports your installed extensions data when extensi
 
 Also you can export manually with `sync-extensions: export extensions data` command.
 
+# Credits: Based off of an original extension by `hoddy3190`
+
+
 ## Extension Settings
 
 This extension has the following settings:

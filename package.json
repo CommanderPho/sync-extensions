@@ -3,7 +3,7 @@
 	"displayName": "sync-extensions",
 	"description": "export installed extensions data for sync",
 	"version": "2.0.0",
-	"publisher": "phohale+hoddy3190",
+	"publisher": "phohale",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/CommanderPho/sync-extensions"
@@ -37,7 +37,11 @@
 		"commands": [
 			{
 				"command": "sync-extensions.exportExtensionsData",
-				"title": "sync-extensions: export extensions data"
+				"title": "⤴️sync-extensions: 💾 export extensions data"
+			},
+			{
+				"command": "sync-extensions.importExtensionsData",
+				"title": "⤴️sync-extensions: ⤴️ import extensions data"
 			}
 		]
 	},
