@@ -31,11 +31,16 @@ const exportExtensionsData = () => {
   try {
     write(config.path, JSON.stringify(extDict, null, 2));
   } catch (err) {
+    let errorMessage = "Unknown error";
+    if (err instanceof Error) {
+      errorMessage = err.message;
+    }
     vscode.window.showErrorMessage(
       `write extensions data error
-      [message]: ${err.message}
+      [message]: ${errorMessage}
       [exported file path]: ${config.path}`
     );
+
     return;
   }
   console.log(
