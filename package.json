@@ -18,8 +18,18 @@
 	"categories": [
 		"Other"
 	],
+	"icon": "images/VSCode_ExtensionSync_Extension.png",
+	"keywords": [
+		"python",
+		"path",
+		"extensions",
+		"export",
+		"version",
+		"multi-root ready"
+	],
 	"activationEvents": [
-		"*"
+		"onCommand:sync-extensions.exportExtensionsData",
+		"onCommand:sync-extensions.importExtensionsData"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
